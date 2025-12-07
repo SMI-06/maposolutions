@@ -1563,14 +1563,14 @@ section,
   top: 15px;
   left: 30px;
   font-size: 42px;
-  color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  color: color-mix(in srgb, var(--accent-color), transparent 100%);
   z-index: 0;
   opacity: 0.8;
 }
 
 .testimonials .testimonial-profile {
   padding: 20px 30px;
-  background-color: color-mix(in srgb, var(--heading-color), transparent 95%);
+  background-color: white;
   border-top: 1px solid color-mix(in srgb, var(--heading-color), transparent 90%);
 }
 
@@ -1594,7 +1594,7 @@ section,
   height: 55px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--background-color);
+  border: 3px solid var(--accent-color);
   margin-right: 15px;
 }
 
@@ -1606,13 +1606,13 @@ section,
   margin: 0 0 5px;
   font-size: 16px;
   font-weight: 700;
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 .testimonials .profile-info h4 {
   margin: 0;
   font-size: 13px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--nav-dropdown-background-color);
   font-weight: 500;
 }
 
