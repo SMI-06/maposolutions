@@ -1547,6 +1547,7 @@ section,
   padding: 40px 30px 30px;
   position: relative;
   flex-grow: 1;
+  background-color: var(--accent-color);
 }
 
 .testimonials .testimonial-content p {
