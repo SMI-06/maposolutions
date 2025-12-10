@@ -109,10 +109,10 @@
                   <div class="image-decoration"></div>
                   <div class="watermark">
                     <img
-                    src="assets/img/logo.png"
-                    alt="Business Innovation"
-                    class="img-fluid"
-                  />
+                      src="assets/img/logo.png"
+                      alt="Business Innovation"
+                      class="img-fluid"
+                    />
                   </div>
                 </div>
               </div>
@@ -1125,73 +1125,6 @@
 
         <div class="container">
           <div class="contact-wrapper">
-            <!-- <div class="contact-info-panel">
-              <div class="contact-info-header">
-                <h3>Contact Information</h3>
-                <p>
-                  Dignissimos deleniti accusamus rerum voluptate. Dignissimos
-                  rerum sit maiores reiciendis voluptate inventore ut.
-                </p>
-              </div>
-
-              <div class="contact-info-cards">
-                <div class="info-card">
-                  <div class="icon-container">
-                    <i class="bi bi-pin-map-fill"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Our Location</h4>
-                    <p>
-                      H/No 33 Karim Street, Capital Road New Model Town,
-                      Sialkot. Pakistan
-                    </p>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="icon-container">
-                    <i class="bi bi-envelope-open"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Email Us</h4>
-                    <p>maposolutions22@gmail.com</p>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="icon-container">
-                    <i class="bi bi-telephone-fill"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Call Us</h4>
-                    <p>+92-300-9618286</p>
-                    <p>+92-52-7050232</p>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="icon-container">
-                    <i class="bi bi-clock-history"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Working Hours</h4>
-                    <p>Monday-Saturday: 9AM - 6PM</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="social-links-panel">
-                <h5>Follow Us</h5>
-                <div class="social-icons">
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-youtube"></i></a>
-                </div>
-              </div>
-            </div> -->
-
             <div class="contact-form-panel">
               <div class="map-container">
                 <iframe
@@ -1212,11 +1145,7 @@
                   hendrerit faucibus imperdiet nec eget felis.
                 </p>
 
-                <form
-                  action="forms/contact.php"
-                  method="post"
-                  class="php-email-form"
-                >
+                <form id="contactForm" class="php-email-form">
                   <div class="form-floating mb-3">
                     <input
                       type="text"
@@ -1224,7 +1153,7 @@
                       id="nameInput"
                       name="name"
                       placeholder="Full Name"
-                      required=""
+                      required
                     />
                     <label for="nameInput">Full Name</label>
                   </div>
@@ -1236,7 +1165,7 @@
                       id="emailInput"
                       name="email"
                       placeholder="Email Address"
-                      required=""
+                      required
                     />
                     <label for="emailInput">Email Address</label>
                   </div>
@@ -1248,7 +1177,7 @@
                       id="subjectInput"
                       name="subject"
                       placeholder="Subject"
-                      required=""
+                      required
                     />
                     <label for="subjectInput">Subject</label>
                   </div>
@@ -1261,7 +1190,7 @@
                       rows="5"
                       placeholder="Your Message"
                       style="height: 150px"
-                      required=""
+                      required
                     ></textarea>
                     <label for="messageInput">Your Message</label>
                   </div>
@@ -1371,5 +1300,49 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  document.querySelector(".loading").style.display = "block";
+  document.querySelector(".error-message").style.display = "none";
+  document.querySelector(".sent-message").style.display = "none";
+
+  const data = {
+    name: document.getElementById("nameInput").value,
+    email: document.getElementById("emailInput").value,
+    subject: document.getElementById("subjectInput").value,
+    message: document.getElementById("messageInput").value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxdaraKIoIKxXNwT-GU6DZb2ZJ2yM4MibZ5sWrNJOfJ9uXaKqWBvm3ChtAGYjMOFRKq/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(response => {
+      document.querySelector(".loading").style.display = "none";
+
+      if (response.result === "success") {
+        document.querySelector(".sent-message").style.display = "block";
+        document.getElementById("contactForm").reset();
+      } else {
+        document.querySelector(".error-message").innerHTML = "Error submitting form.";
+        document.querySelector(".error-message").style.display = "block";
+      }
+    })
+    .catch(err => {
+      document.querySelector(".loading").style.display = "none";
+      document.querySelector(".error-message").innerHTML = "Connection error!";
+      document.querySelector(".error-message").style.display = "block";
+    });
+});
+
+
+    </script>
   </body>
 </html>
