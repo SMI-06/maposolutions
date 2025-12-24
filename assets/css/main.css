@@ -937,6 +937,7 @@ section,
 }
 
 .about .image-wrapper .image-box {
+  height: 40rem;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
