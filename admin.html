@@ -71,7 +71,7 @@
               <th scope="col">Subject</th>
               <th scope="col">Message</th>
               <th scope="col">Date & Time</th>
-              <th scope="col">Action</th>
+              <!-- <th scope="col">Action</th> -->
             </tr>
           </thead>
           <tbody class="table-group-divider"></tbody>
@@ -210,37 +210,22 @@
         <td>${data.subject || ""}</td>
         <td>${data.message || ""}</td>
         <td>${submittedAt}</td>
-         <td>
-   <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-  <button 
-    class="btn btn-danger"
-    onclick="deleteContact('${firebaseKey}')">
-    Delete
-  </button>
-</div>
-    </td>
       `;
           tableBody.appendChild(row);
         });
       });
-
-      import { remove } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
-
-function deleteContact(firebaseKey) {
-  if (!confirm("Are you sure you want to delete this record?")) return;
-
-  const contactRef = ref(db, "contacts/" + firebaseKey);
-
-  remove(contactRef)
-    .then(() => {
-      alert("Record deleted successfully");
-    })
-    .catch((error) => {
-      console.error(error);
-      alert("Error deleting record");
-    });
-}
-
     </script>
   </body>
 </html>
+
+
+
+<!--     // <td>
+        //     <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+        //         <button 
+        //           class="btn btn-danger"
+        //           onclick="deleteContact('${firebaseKey}')">
+        //           Delete
+        //         </button>
+        //     </div>
+        // </td> -->
