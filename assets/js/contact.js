@@ -4,15 +4,15 @@
 //         .addEventListener("submit", function (e) {
 //           e.preventDefault(); // stop page refresh
 
-//           const name = document.getElementById("nameInput").value;
-//           const email = document.getElementById("emailInput").value;
-//           const subject = document.getElementById("subjectInput").value;
-//           const message = document.getElementById("messageInput").value;
+//            const data = {
+//     name: document.getElementById("nameInput").value.trim(),
+//     email: document.getElementById("emailInput").value.trim(),
+//     subject: document.getElementById("subjectInput").value.trim(),
+//     message: document.getElementById("messageInput").value.trim(),
+//     datetime: new Date().toLocaleString()
+//   };
 
-//           console.log("Name:", name);
-//           console.log("Email:", email);
-//           console.log("Subject:", subject);
-//           console.log("Message:", message);
+//   console.log(data);
 //         });
 
 
@@ -23,20 +23,16 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   document.querySelector(".error-message").style.display = "none";
   document.querySelector(".sent-message").style.display = "none";
 
-  const data = {
-    name: document.getElementById("nameInput").value.trim(),
-    email: document.getElementById("emailInput").value.trim(),
-    subject: document.getElementById("subjectInput").value.trim(),
-    message: document.getElementById("messageInput").value.trim(),
-    datetime: new Date().toLocaleString()
-  };
+  const formData = new FormData();
+  formData.append("name", document.getElementById("nameInput").value.trim());
+  formData.append("email", document.getElementById("emailInput").value.trim());
+  formData.append("subject", document.getElementById("subjectInput").value.trim());
+  formData.append("message", document.getElementById("messageInput").value.trim());
+  formData.append("datetime", new Date().toLocaleString());
 
-  fetch("https://script.google.com/macros/s/AKfycbxF19gGRXhrIoSVAwqVRUtNYn9gApy7z0hZ8WZWF1ZYq6wgMfj3oBYeWXLMpsL9Ti8t/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwLctivx_evprDroqodgYBkNpBkEyU_oSWQ01IN49m24aUY907d5HLhYSM0bJXqOyCC/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
+    body: formData
   })
   .then(res => res.json())
   .then(response => {
@@ -46,13 +42,13 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
       document.querySelector(".sent-message").style.display = "block";
       document.getElementById("contactForm").reset();
     } else {
-      document.querySelector(".error-message").innerText = "Error submitting form.";
+      document.querySelector(".error-message").innerText = "Error submitting form";
       document.querySelector(".error-message").style.display = "block";
     }
   })
   .catch(() => {
     document.querySelector(".loading").style.display = "none";
-    document.querySelector(".error-message").innerText = "Connection error!";
+    document.querySelector(".error-message").innerText = "Connection error";
     document.querySelector(".error-message").style.display = "block";
   });
 });
