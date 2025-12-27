@@ -30,6 +30,7 @@
       href="assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="sweetalert2.min.css" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
@@ -54,6 +55,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -81,39 +83,6 @@
                   <a href="https://wa.me/923009618286" class="btn btn-primary"
                     >Let's Contact</a
                   >
-                  <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-outline glightbox">
-                  <i class="bi bi-play-circle"></i>
-                  Watch Demo
-                </a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div
-                class="hero-image-container"
-                data-aos="zoom-in"
-                data-aos-delay="400"
-              >
-                <div class="hero-image">
-                  <video
-                    src="assets/img/Videos/Jackets.mp4"
-                    class="img-fluid"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                  ></video>
-                  <div class="image-decoration"></div>
-                  <div class="watermark">
-                    <img
-                      src="assets/img/logo.png"
-                      alt="Business Innovation"
-                      class="img-fluid"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -155,7 +124,7 @@
                   data-aos="zoom-in"
                   data-aos-delay="300"
                 >
-                  <div class="years">15+</div>
+                  <div class="years">20+</div>
                   <div class="text">Years of<br />Experience</div>
                 </div>
               </div>
@@ -361,24 +330,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-item">
-                  <div class="service-icon">
-                    <i class="bi bi-megaphone"></i>
-                  </div>
-                  <div class="service-content">
-                    <span class="service-number">04</span>
-                    <h3 class="service-title">Digital Marketing &amp; SEO</h3>
-                    <p class="service-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nulla condimentum tortor sem, in semper nisl bibendum eu.
-                      Duis pellentesque.
-                    </p>
-                    
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
@@ -391,10 +342,7 @@
         <div class="container section-title" data-aos="fade-up">
           <span class="description-title">Steps</span>
           <h2>Steps</h2>
-          <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
-          </p>
+          <p>How Mapo Solutions Drives Success Through a Clear Process</p>
         </div>
         <!-- End Section Title -->
 
@@ -448,7 +396,7 @@
                   <span class="step-number">03</span>
                   <div class="card-body">
                     <div class="step-icon">
-                      <i class="bi bi-"></i>
+                      <i class="bi bi-pencil-square"></i>
                     </div>
                     <div class="step-content">
                       <h3>Product Inspection</h3>
@@ -470,7 +418,7 @@
                   <span class="step-number">04</span>
                   <div class="card-body">
                     <div class="step-icon">
-                      <i class="bi bi-pencil-square"></i>
+                      <i class="bi bi-pen"></i>
                     </div>
                     <div class="step-content">
                       <h3>Reporting &amp; Recommendations</h3>
@@ -499,8 +447,8 @@
           <span class="description-title">Portfolio</span>
           <h2>Portfolio</h2>
           <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            Delivering Excellence Through Rigorous Inspections, Quality Control,
+            and Independent Audits
           </p>
         </div>
         <!-- End Section Title -->
@@ -539,7 +487,7 @@
                     <img
                       src="assets/img/portfolio/Leather.webp"
                       class="img-fluid"
-                      alt="Lather"
+                      alt="Leather"
                       loading="lazy"
                     />
                     <div class="overlay">
@@ -547,7 +495,7 @@
                         <a
                           href="assets/img/portfolio/Leather.webp"
                           class="glightbox zoom-link"
-                          title="Lather"
+                          title="Leather"
                         >
                           <i class="bi bi-zoom-in"></i>
                         </a>
@@ -562,8 +510,8 @@
                     </div>
                   </div>
                   <div class="content">
-                    <h3>Lather</h3>
-                    <p>This is Lather.</p>
+                    <h3>Leather</h3>
+                    <p>This is Leather.</p>
                   </div>
                 </div>
               </div>
@@ -689,19 +637,108 @@
       </section>
       <!-- /Portfolio Section -->
 
+      <!-- Team Section -->
+      <section id="gallery" class="gallery section">
+        <video autoplay muted loop class="gallery-bg-video">
+          <source src="assets/img/Videos/Jackets.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <span class="description-title">Our Gallery</span>
+          <h2>Our Gallery</h2>
+        </div>
+        <!-- End Section Title -->
+        <div
+          class="container modern-gallery"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <!-- <section class=""> -->
+          <div class="gallery-container">
+            <div class="carousel">
+              <div class="carousel-track" id="carouselTrack">
+                <!-- 8 Unique Cards -->
+                <div class="card" style="--delay: 0s">
+                  <img src="assets/img/portfolio/1.jpeg" alt="Inspection One" />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.2s">
+                  <img src="assets/img/portfolio/2.jpeg" alt="Inspection Two" />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.4s">
+                  <img
+                    src="assets/img/portfolio/3.jpeg"
+                    alt="Inspection Three"
+                  />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.6s">
+                  <img
+                    src="assets/img/portfolio/4.jpeg"
+                    alt="Inspection Four"
+                  />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.6s">
+                  <img
+                    src="assets/img/portfolio/5.jpeg"
+                    alt="Inspection Five"
+                  />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.6s">
+                  <img src="assets/img/portfolio/6.jpeg" alt="Inspection Six" />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.6s">
+                  <img
+                    src="assets/img/portfolio/7.jpeg"
+                    alt="Inspection Seven"
+                  />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+                <div class="card" style="--delay: 0.6s">
+                  <img
+                    src="assets/img/portfolio/8.jpeg"
+                    alt="Inspection Eight"
+                  />
+                  <div class="card-overlay">
+                    <h3>Inspection</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- </section> -->
+        </div>
+      </section>
+      <!-- /Team Section -->
+
       <!-- Testimonials Section -->
       <section id="testimonials" class="testimonials section light-background">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <span class="description-title">Testimonials</span>
           <h2>Testimonials</h2>
-          <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
-          </p>
         </div>
         <!-- End Section Title -->
-
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="testimonials-slider swiper init-swiper">
             <script type="application/json" class="swiper-config">
@@ -1110,7 +1147,7 @@
       <div class="container copyright text-center mt-4">
         <p>
           © <span>Copyright</span>
-          <strong class="px-1 sitename">MAPO SOLUTTIONS</strong>
+          <strong class="px-1 sitename">MAPO Solutions</strong>
           <span>All Rights Reserved</span>
         </p>
         <div class="credits">
@@ -1139,12 +1176,16 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="sweetalert2.min.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <!-- <script src="assets/js/contact.js"></script> -->
 
     <script type="module">
+      const alert = document.getElementById("alertmsg");
+
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
       import {
         getDatabase,
@@ -1157,7 +1198,8 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD-J9ZrHVKMq3aP2pRWy1yo7gMxq8DyMBs",
         authDomain: "maposolutions-pro.firebaseapp.com",
-        databaseURL: "https://maposolutions-pro-default-rtdb.europe-west1.firebasedatabase.app/",
+        databaseURL:
+          "https://maposolutions-pro-default-rtdb.europe-west1.firebasedatabase.app/",
         projectId: "maposolutions-pro",
         storageBucket: "maposolutions-pro.appspot.com",
         messagingSenderId: "1041332061590",
@@ -1186,12 +1228,29 @@
           // Push data to Firebase Realtime Database
           push(ref(db, "contacts"), data)
             .then(() => {
-              alert("Message saved successfully!");
-              e.target.reset(); // form clear ho jaye
+              Swal.fire({
+                title: "Message sent successfully!",
+                icon: "success",
+                confirmButtonText: "OK",
+                background: "#37373e", // alert ka background color
+                color: "#ffffff",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#F53C3CCC",
+              });
+
+              e.target.reset(); // form clear
             })
             .catch((error) => {
               console.error("Error saving message:", error);
-              alert("Error saving your message. Try again.");
+
+              // Error alert
+              Swal.fire({
+                title: "Oops! Something went wrong.",
+                text: "Could not save your message. Try again.",
+                icon: "error",
+                draggable: true,
+                confirmButtonText: "OK",
+              });
             });
         });
     </script>

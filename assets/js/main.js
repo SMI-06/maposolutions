@@ -218,3 +218,34 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// MY Gallery animations
+
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.children);
+  const cardCount = cards.length; // 4
+  
+  // Clone for infinite
+  cards.forEach(card => track.appendChild(card.cloneNode(true)));
+  
+  const cardWidth = 280 + 32; // width + gap
+  let position = 0;
+  const speed = 0.5; // pixels per frame
+  
+  function animate() {
+    position += speed;
+    
+    // Seamless reset (invisible)
+    if (position >= cardCount * cardWidth) {
+      position = 0; // Instant reset - NO JUMP
+    }
+    
+    track.style.transform = `translateX(-${position}px)`;
+    requestAnimationFrame(animate);
+  }
+  
+  // Start animation
+  requestAnimationFrame(animate);
+});
+

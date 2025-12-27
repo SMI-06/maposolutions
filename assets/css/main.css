@@ -679,8 +679,8 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
+  background-color: #09090a;
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 80px;
@@ -877,21 +877,6 @@ section,
   border-radius: 50%;
 }
 
-
-.hero .hero-image-container .hero-image .watermark {
-  position: absolute;
-   top: 35%;
-  left: 25%;
-  right: 25%; 
-  width: 50%;
-  height: 50%;
-  /* background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #fff 30%)); */
-  /* border-radius: 50%; */
-  opacity: 0.5;
-   z-index: 4;
-}
-
-
 @media (max-width: 768px) {
   .hero .hero-image-container .hero-image .image-decoration {
     width: 60px;
@@ -937,7 +922,7 @@ section,
 }
 
 .about .image-wrapper .image-box {
-  height: 40rem;
+  /* height: 40rem; */
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -973,7 +958,7 @@ section,
 
 .about .image-wrapper .experience-box .text {
   font-size: 0.9rem;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   line-height: 1.2;
 }
 
@@ -1105,7 +1090,7 @@ section,
 }
 
 .about .about-stats {
-  margin-top: 5%;
+  margin-top: 8%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
@@ -1374,6 +1359,19 @@ section,
   .services .cta-wrapper .cta-box {
     padding: 30px 20px;
   }
+}
+
+.services .services-container .video .watermark {
+  position: absolute;
+   top: 35%;
+  left: 25%;
+  right: 25%; 
+  width: 50%;
+  height: 50%;
+  /* background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #fff 30%)); */
+  /* border-radius: 50%; */
+  opacity: 0.5;
+   z-index: 4;
 }
 
 /*--------------------------------------------------------------
@@ -1858,223 +1856,6 @@ section,
   .portfolio .portfolio-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
-  }
-}
-
-/*--------------------------------------------------------------
-# Client Section
---------------------------------------------------------------*/
-
-.client-card {
-  /* background: cadetblue; */
-  padding: 25px;
-  text-align: center;
-  border-radius: 10px;
-  /* box-shadow: 0px 4px 15px rgba(0,0,0,0.05); */
-}
-
-.client-card img {
-  max-width: 100px;
-  height: auto;
-  margin-bottom: 15px;
-  object-fit: contain;
-}
-
-.client-card h4 {
-  font-size: 16px;
-  margin: 0;
-  text-transform: uppercase;
-  color: var(--contrast-color);
-}
-
-.clients .section-title p
-{
-  font-size: 0.90rem;
-}
-
-.clients .swiper-pagination {
-  margin-top: 30px;
-  position: relative;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 60%);
-  opacity: 1;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-  width: 25px;
-  border-radius: 5px;
-}
-
-
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-.team .team-member {
-  position: relative;
-  background-color: var(--surface-color);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: 0.4s;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 100%;
-}
-
-.team .team-member:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px color-mix(in srgb, var(--accent-color), transparent 80%);
-  border-color: var(--accent-color);
-}
-
-.team .team-member:hover .member-image:before {
-  opacity: 1;
-}
-
-.team .team-member:hover .member-image img {
-  transform: scale(1.1);
-}
-
-.team .team-member:hover .social-overlay {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.team .team-member:hover .member-info h4 {
-  color: var(--accent-color);
-}
-
-.team .member-image {
-  position: relative;
-  height: 280px;
-  overflow: hidden;
-}
-
-.team .member-image:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), transparent 50%) 100%);
-  opacity: 0;
-  transition: 0.4s;
-  z-index: 1;
-}
-
-.team .member-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.team .social-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  padding: 30px 20px 20px;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: 0.4s;
-  z-index: 2;
-}
-
-.team .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.team .social-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  color: var(--contrast-color);
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.team .social-icons a:hover {
-  background-color: var(--contrast-color);
-  color: var(--accent-color);
-  transform: scale(1.1);
-}
-
-.team .member-info {
-  padding: 25px 20px 30px;
-  text-align: center;
-  position: relative;
-}
-
-.team .member-info:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), transparent 60%) 100%);
-  border-radius: 2px;
-}
-
-.team .member-info h4 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--heading-color);
-  transition: 0.3s;
-}
-
-.team .member-info span {
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--accent-color);
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.team .member-info p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-@media (max-width: 768px) {
-  .team .team-member {
-    margin-bottom: 30px;
-  }
-
-  .team .team-member .member-image {
-    height: 250px;
-  }
-
-  .team .team-member .member-info {
-    padding: 20px 15px 25px;
-  }
-
-  .team .team-member .member-info h4 {
-    font-size: 20px;
-  }
-
-  .team .team-member .member-info p {
-    font-size: 14px;
   }
 }
 
@@ -3086,7 +2867,7 @@ section,
 
 .about .description-title,
 .services .description-title,
-.steps .description-title, .team .description-title,
+.steps .description-title, .gallery .description-title,
 .contact .description-title,
 .testimonials .description-title,
 .pricing .description-title,
@@ -3094,4 +2875,129 @@ section,
 .faq .description-title, .clients .description-title {
   color: var(--accent-color);
   opacity: 0.5;
+}
+/*--------------------------------------------------------------
+# Our Gallery Section
+--------------------------------------------------------------*/
+
+.gallery{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-container {
+  position: relative;
+  height: 70vh;
+}
+
+.carousel {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  gap: 2rem;
+  padding: 2rem;
+  will-change: transform;
+}
+
+.card {
+  width: 280px;
+  height: 400px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.card:hover {
+  transform: translateY(-20px) scale(1.05) rotate(2deg);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.6), 0 0 60px var(--accent-color)
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 2rem 1.5rem 2rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-overlay {
+  transform: translateY(0);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.card p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card { width: 220px; height: 320px; }
+}
+
+/* Extra sparkle add karna hai to ye daal do */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.gallery .gallery-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(10%); /* dim the video */
+}
+
+.gallery .modern-gallery {
+  position: relative;
+  z-index: 1; /* Text color over video */
+  text-align: center;
 }

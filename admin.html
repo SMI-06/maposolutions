@@ -195,7 +195,8 @@
       onValue(contactsRef, (snapshot) => {
         tableBody.innerHTML = ""; // Clear table before adding
         snapshot.forEach((childSnapshot) => {
-          const firebaseKey = childSnapshot.key;
+          const 
+          firebaseKey = childSnapshot.key;
           const data = childSnapshot.val();
           const row = document.createElement("tr");
 
