@@ -507,7 +507,7 @@
                           <i class="bi bi-arrow-right"></i>
                         </a>
                       </div> -->
-                    </div> 
+                    </div>
                   </div>
                   <div class="content">
                     <h3>Leather</h3>
@@ -545,7 +545,7 @@
                           <i class="bi bi-arrow-right"></i>
                         </a>
                       </div> -->
-                    </div> 
+                    </div>
                   </div>
                   <div class="content">
                     <h3>Gloves</h3>
@@ -557,7 +557,7 @@
 
               <div
                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web"
-              > 
+              >
                 <div class="portfolio-card">
                   <div class="image-container">
                     <img
@@ -567,7 +567,7 @@
                       loading="lazy"
                     />
                     <div class="overlay">
-                     <!--  <div class="overlay-content">
+                      <!--  <div class="overlay-content">
                         <a
                           href="assets/img/portfolio/Textlie.jpg"
                           class="glightbox zoom-link"
@@ -604,7 +604,7 @@
                       alt="Brand Animation"
                       loading="lazy"
                     />
-                     <div class="overlay">
+                    <div class="overlay">
                       <!-- <div class="overlay-content">
                         <a
                           href="assets/img/portfolio/Boots.jpeg"
@@ -621,7 +621,7 @@
                           <i class="bi bi-arrow-right"></i>
                         </a>
                       </div> -->
-                    </div> 
+                    </div>
                   </div>
                   <div class="content">
                     <h3>Boots</h3>
@@ -1028,6 +1028,9 @@
                       id="nameInput"
                       name="name"
                       placeholder="Full Name"
+                      oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'');
+                      this.value=this.value.charAt(0).toUpperCase()+this.value.slice(1)"
+                      onkeypress="return /[a-zA-Z\s]/.test(event.key)"
                       required
                     />
                     <label for="nameInput">Full Name</label>
@@ -1047,11 +1050,29 @@
 
                   <div class="form-floating mb-3">
                     <input
+                      type="tel"
+                      class="form-control"
+                      id="phoneInput"
+                      name="phone"
+                      placeholder="Phone"
+                      maxlength="15"
+                      pattern="[0-9]*"
+                      inputmode="numeric"
+                      required
+                    />
+                    <label for="phoneInput">Phone</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
                       type="text"
                       class="form-control"
                       id="subjectInput"
                       name="subject"
                       placeholder="Subject"
+                      oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'');
+                      this.value=this.value.charAt(0).toUpperCase()+this.value.slice(1)"
+                      onkeypress="return /[a-zA-Z\s]/.test(event.key)"
                       required
                     />
                     <label for="subjectInput">Subject</label>
@@ -1177,6 +1198,7 @@
     <script src="sweetalert2.min.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/database.js"></script>
     <!-- <script src="assets/js/contact.js"></script> -->
 
     <script type="module">
@@ -1216,6 +1238,7 @@
           const data = {
             name: document.getElementById("nameInput").value.trim(),
             email: document.getElementById("emailInput").value.trim(),
+            phone: document.getElementById("phoneInput").value.trim(),
             subject: document.getElementById("subjectInput").value.trim(),
             message: document.getElementById("messageInput").value.trim(),
             createdAt: serverTimestamp(),

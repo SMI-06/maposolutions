@@ -59,22 +59,24 @@
 
     <main class="main">
       <div class="container">
-        <table
-          class="table table-success table-striped-columns text-center"
-          id="contacttable"
-        >
+        <table id="contacttable" class="table table-success text-center">
           <thead>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Message</th>
-              <th scope="col">Date & Time</th>
-              <!-- <th scope="col">Action</th> -->
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider"></tbody>
+          <tbody>
+            <tr>
+              <td colspan="8">Loading...</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </main>
@@ -162,18 +164,16 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
-    <!-- <script src="assets/js/contact.js"></script> -->
 
     <script type="module">
-    //  Show Data 
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
       import {
         getDatabase,
         ref,
         onValue,
+        remove,
       } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
 
-      // Firebase config (tumhara project)
       const firebaseConfig = {
         apiKey: "AIzaSyD-J9ZrHVKMq3aP2pRWy1yo7gMxq8DyMBs",
         authDomain: "maposolutions-pro.firebaseapp.com",
@@ -185,48 +185,90 @@
         appId: "1:1041332061590:web:425f9db0a31738881589b7",
       };
 
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
 
       const tableBody = document.querySelector("#contacttable tbody");
+      console.log("Table body found:", tableBody); // DEBUG
+
       const contactsRef = ref(db, "contacts");
 
-      onValue(contactsRef, (snapshot) => {
-        tableBody.innerHTML = ""; // Clear table before adding
-        snapshot.forEach((childSnapshot) => {
-          const 
-          firebaseKey = childSnapshot.key;
-          const data = childSnapshot.val();
-          const row = document.createElement("tr");
-
-          const submittedAt = data.createdAt
-            ? new Date(data.createdAt).toLocaleString()
-            : "";
-
-          row.innerHTML = `
-        <td>${firebaseKey}</td>
-        <td>${data.name || ""}</td>
-        <td>${data.email || ""}</td>
-        <td>${data.subject || ""}</td>
-        <td>${data.message || ""}</td>
-        <td>${submittedAt}</td>
-      `;
-          tableBody.appendChild(row);
-        });
+      // Event delegation for delete buttons
+      tableBody.addEventListener("click", async function (e) {
+        if (e.target.matches(".delete-btn")) {
+          e.stopPropagation();
+          const firebaseKey = e.target.getAttribute("data-key");
+          await deleteContact(firebaseKey);
+        }
       });
+
+      // Real-time data listener
+      onValue(
+        contactsRef,
+        (snapshot) => {
+          console.log("Snapshot received:", snapshot.val()); // DEBUG
+
+          tableBody.innerHTML = "";
+
+          if (!snapshot.exists()) {
+            tableBody.innerHTML =
+              '<tr><td colspan="8">No contacts found</td></tr>';
+            console.log("No data in contacts"); // DEBUG
+            return;
+          }
+
+          const dataCount = 0;
+          snapshot.forEach((childSnapshot) => {
+            const firebaseKey = childSnapshot.key;
+            const data = childSnapshot.val();
+            console.log("Processing:", firebaseKey, data); // DEBUG
+
+            const row = document.createElement("tr");
+            const submittedAt = data.createdAt
+              ? new Date(data.createdAt).toLocaleString("en-IN")
+              : "N/A";
+
+            row.innerHTML = `
+                <td>${firebaseKey}</td>
+                <td>${data.name || ""}</td>
+                <td>${data.email || ""}</td>
+                <td>${data.phone || ""}</td>
+                <td>${data.subject || ""}</td>
+                <td>${data.message || ""}</td>
+                <td>${submittedAt}</td>
+                <td>
+                  <button class="delete-btn" data-key="${firebaseKey}"> Delete </button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+          });
+          console.log("Table updated with data"); // DEBUG
+        },
+        (error) => {
+          console.error("Firebase Error:", error);
+          tableBody.innerHTML = `<tr><td colspan="8">Error: ${error.message}</td></tr>`;
+        }
+      );
+
+      let isDeleting = false;
+
+      async function deleteContact(firebaseKey) {
+        if (isDeleting) return;
+
+        if (confirm("Are You Sure?")) {
+          isDeleting = true;
+          try {
+            const contactRef = ref(db, `contacts/${firebaseKey}`);
+            await remove(contactRef);
+            console.log("✅ Deleted:", firebaseKey);
+          } catch (error) {
+            console.error("❌ Delete error:", error);
+            alert("Error: " + error.message);
+          } finally {
+            isDeleting = false;
+          }
+        }
+      }
     </script>
   </body>
 </html>
-
-
-
-<!--     // <td>
-        //     <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-        //         <button 
-        //           class="btn btn-danger"
-        //           onclick="deleteContact('${firebaseKey}')">
-        //           Delete
-        //         </button>
-        //     </div>
-        // </td> -->
