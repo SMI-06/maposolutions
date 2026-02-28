@@ -189,15 +189,29 @@
   /**
    * Frequently Asked Questions Toggle
    */
-  document
-    .querySelectorAll(
-      ".faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header"
-    )
-    .forEach((faqItem) => {
-      faqItem.addEventListener("click", () => {
-        faqItem.parentNode.classList.toggle("faq-active");
-      });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".faq-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const faqItem = toggle.closest(".faq-item");
+      const plus = toggle.querySelector(".bi-plus");
+      const minus = toggle.querySelector(".bi-dash");
+
+      // Toggle faq active
+      faqItem.classList.toggle("faq-active");
+
+      // Pure JS icon toggle
+      if (faqItem.classList.contains("faq-active")) {
+        plus.style.display = "none";
+        minus.style.display = "inline-block";
+      } else {
+        plus.style.display = "inline-block";
+        minus.style.display = "none";
+      }
     });
+  });
+});
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
