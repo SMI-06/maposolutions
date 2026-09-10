@@ -62,7 +62,7 @@
         <table id="contacttable" class="table table-success text-center">
           <thead>
             <tr>
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
@@ -177,7 +177,7 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD-J9ZrHVKMq3aP2pRWy1yo7gMxq8DyMBs",
         authDomain: "maposolutions-pro.firebaseapp.com",
-        databaseURL:
+        databaseURL: 
           "https://maposolutions-pro-default-rtdb.europe-west1.firebasedatabase.app/",
         projectId: "maposolutions-pro",
         storageBucket: "maposolutions-pro.appspot.com",
@@ -229,7 +229,6 @@
               : "N/A";
 
             row.innerHTML = `
-                <td>${firebaseKey}</td>
                 <td>${data.name || ""}</td>
                 <td>${data.email || ""}</td>
                 <td>${data.phone || ""}</td>

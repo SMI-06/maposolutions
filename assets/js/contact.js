@@ -1,21 +1,3 @@
-
-//  document
-//         .getElementById("contactForm")
-//         .addEventListener("submit", function (e) {
-//           e.preventDefault(); // stop page refresh
-
-//            const data = {
-//     name: document.getElementById("nameInput").value.trim(),
-//     email: document.getElementById("emailInput").value.trim(),
-//     subject: document.getElementById("subjectInput").value.trim(),
-//     message: document.getElementById("messageInput").value.trim(),
-//     datetime: new Date().toLocaleString()
-//   };
-
-//   console.log(data);
-//         });
-
-
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
